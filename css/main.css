@@ -1,0 +1,121 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root {
+  --dark-blue: hsl(212, 21%, 14%);
+  --dark-cyan: hsl(158, 36%, 37%);
+  --dark-grayish-blue: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+  --cream: hsl(30, 38%, 92%);
+}
+body {
+  background: var(--cream);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+  padding: 25px;
+  width: 15rem;
+  height: 100%;
+  background-color: var(--white);
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  position: relative;
+  left: 7.5rem; /*This For Centering card*/
+}
+.card::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -15rem;
+  background-image: url('../images/image-product-desktop.jpg');
+  background-size: cover;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.card-content .name {
+  display: block;
+  margin-top: 0;
+  line-height: 1.6;
+  color: var(--dark-grayish-blue);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.card-content .price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-content .current-price {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  color: var(--dark-cyan);
+  display: inline-flex;
+  align-self: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.card-content .last-price {
+  font-size: 10px;
+  color: var(--dark-grayish-blue);
+  text-decoration: line-through;
+}
+.card .card-content h2 {
+  font-family: 'Fraunces', serif;
+}
+.card .card-content p {
+  font-size: 14px;
+  color: var(--dark-grayish-blue);
+}
+.card .card-content button {
+  color: var(--white);
+  background-color: var(--dark-cyan);
+  border: none;
+  width: 100%;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: .4s;
+}
+.card .card-content button:hover,
+.card .card-content button:active {
+  background-color: hsl(122deg 28% 22%);
+}
+
+@media (max-width: 767px) {
+  .card {
+    left: 0;
+    width: 19rem;
+    margin-top: 50px;
+    border-top-right-radius: none;
+    border-bottom-left-radius: 6px;
+    
+  }
+  .card::after {
+    border-bottom-left-radius: none;
+    border-top-right-radius: 6px;
+    top: -50%;
+    left: 0;
+    background-size: contain;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-image: url('../images/image-product-mobile.jpg');
+  }
+  .card-content .current-price {
+    font-size: 30px;
+  }
+  .card-content .last-price {font-size: 14px;}
+  h2 {
+    font-size: 30px;
+  }
+}
